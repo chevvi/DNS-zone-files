@@ -23,6 +23,6 @@ if isgoodipv4(sys.argv[1]) == True:
     with fileinput.FileInput(fileToSearch, inplace=True, backup='.bak') as file:
         for line in file:
             print(line.replace(textToSearch, textToReplace), end='')
-    subprocess.run(["mv", "templatecommon", "%s %arpa])
+    subprocess.run(["mv", "templatecommon", "%s" %arpa])
     subprocess.run(["mv", "templatecommon.bak", "templatecommon"])
     subprocess.run(["svn", "add", "%s %arpa])
