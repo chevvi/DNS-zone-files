@@ -3,6 +3,12 @@
 import subprocess
 import fileinput
 
+def isgoodipv4(s):
+    pieces = s.split('.')
+    if len(pieces) != 4: return False
+    try: return all(0<=int(p)<256 for p in pieces)
+    except ValueError: return False 
+
 
 fileToSearch='templatecommon'
 textToSearch='templatecommon'
