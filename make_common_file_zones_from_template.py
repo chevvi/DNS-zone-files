@@ -25,4 +25,4 @@ if isgoodipv4(sys.argv[1]) == True:
             print(line.replace(textToSearch, textToReplace), end='')
     subprocess.run(["mv", "templatecommon", "%s" %arpa])
     subprocess.run(["mv", "templatecommon.bak", "templatecommon"])
-    subprocess.run(["svn", "add", "%s %arpa])
+    subprocess.run(["svn", "add", "%s" %arpa])
