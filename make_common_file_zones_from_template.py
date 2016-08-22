@@ -13,13 +13,16 @@ def isgoodipv4(s):
 def reverse(st): return st[::-1]
 reverse = lambda st: st[::-1]
 
-
-fileToSearch='templatecommon'
-textToSearch='templatecommon'
-textToReplace='123456789'
-with fileinput.FileInput(fileToSearch, inplace=True, backup='.bak') as file:
-    for line in file:
-        print(line.replace(textToSearch, textToReplace), end='')
-subprocess.run(["mv", "templatecommon", "newarpa"])
-subprocess.run(["mv", "templatecommon.bak", "templatecommon"])
-subprocess.run(["svn", "add"," newarpa"])
+if isgoodipv4(sys.argv[1]) == True:
+    print("OK")
+    arpa=reverse(sys.argv[1])
+    print("%s" %arpa)
+    fileToSearch='templatecommon'
+    textToSearch='templatecommon'
+    textToReplace='123456789'
+    with fileinput.FileInput(fileToSearch, inplace=True, backup='.bak') as file:
+        for line in file:
+            print(line.replace(textToSearch, textToReplace), end='')
+    subprocess.run(["mv", "templatecommon", "newarpa"])
+    subprocess.run(["mv", "templatecommon.bak", "templatecommon"])
+    subprocess.run(["svn", "add"," newarpa"])
