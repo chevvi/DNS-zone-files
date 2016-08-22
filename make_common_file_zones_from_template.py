@@ -27,5 +27,5 @@ if isgoodipv4(sys.argv[1]) == True:
     subprocess.run(["mv", "templatecommon.bak", "templatecommon"])
     subprocess.run(["svn", "add", "%s" %arpa])
     subprocess.run(["svn", "propset", "svn:keywords", "'Id'", "%s" %arpa])
-    subprocess.run(["svn", "ci", "-m", "%s " %arpa])
+    subprocess.run(["svn", "ci", "-m", "%s" %arpa])
 
