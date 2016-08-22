@@ -10,6 +10,9 @@ def isgoodipv4(s):
     try: return all(0<=int(p)<256 for p in pieces)
     except ValueError: return False 
 
+def reverse(st): return st[::-1]
+reverse = lambda st: st[::-1]
+
 
 fileToSearch='templatecommon'
 textToSearch='templatecommon'
