@@ -20,13 +20,13 @@ if isgoodipv4(sys.argv[1]) == True:
     print("%s" %arpa)
     fileToSearch='templatecommon'
     textToSearch='templatecommon'
-    textToReplace='123456789'
+    #textToReplace='123456789'
     with fileinput.FileInput(fileToSearch, inplace=True, backup='.bak') as file:
         for line in file:
             print(line.replace(textToSearch, arpa), end='')
     subprocess.run(["mv", "templatecommon", "%s" %sys.argv[1]])
     subprocess.run(["mv", "templatecommon.bak", "templatecommon"])
-    subprocess.run(["svn", "add", "%s" %arpa])
+    subprocess.run(["svn", "add", "%s" %sys.argv[1]])
     subprocess.run(["svn", "propset", "svn:keywords", "'Id'", "%s" %sys.argv[1]])
     subprocess.run(["svn", "ci", "-m", "%s " %sys.argv[1]])
     text='\nzone \"%s.S\" {\n\ttype slave;\n\tfile \"slave/%s.S\";\n\tmasters {' % (arpa, arpa)
@@ -34,6 +34,7 @@ if isgoodipv4(sys.argv[1]) == True:
         text=text+str("\n\t\t%s; \t//%s" % (infraDns[ns], ns))
     f=open('text1.txt', 'a')
     f.write(text)
+     f.write('}')
     f.close()
 
 
