@@ -28,4 +28,11 @@ if isgoodipv4(sys.argv[1]) == True:
     subprocess.run(["svn", "add", "%s" %arpa])
     subprocess.run(["svn", "propset", "svn:keywords", "'Id'", "%s" %arpa])
     subprocess.run(["svn", "ci", "-m", "%s " %arpa])
+    text='\nzone \"$arpa\" {\n\ttype slave;\n\tfile \"slave/$arpa.S\";\n\tmasters {'
+    for ns in infraDns:
+        text=text+str("\n\t\t%s; \t//%s" % (infraDns[ns], ns))
+    f=open('text1.txt', 'a')
+    f.write(text)
+    f.close()
+
 
