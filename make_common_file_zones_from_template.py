@@ -4,6 +4,7 @@ import sys
 import subprocess
 import fileinput
 from config import infraDns
+from config import slave
 
 
 def isgoodipv4(s):
@@ -33,7 +34,7 @@ if isgoodipv4(sys.argv[1]) == True:
     text='\nzone \"%s.S\" {\n\ttype slave;\n\tfile \"slave/%s.S\";\n\tmasters {' % (arpa, arpa)
     for ns in infraDns:
         text=text+str("\n\t\t%s; \t//%s" % (infraDns[ns], ns))
-    f=open('text1.txt', 'a')
+    f=open('%s', % slave 'a')
     f.write(text)
     f.write('\n\t};\n};\n')
     f.close()
