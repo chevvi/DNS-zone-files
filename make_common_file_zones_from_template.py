@@ -34,7 +34,6 @@ if isgoodipv4(sys.argv[1]) == True:
         text=text+str("\n\t\t%s; \t//%s" % (infraDns[ns], ns))
     f=open('text1.txt', 'a')
     f.write(text)
-     f.write('}')
     f.close()
 
 
