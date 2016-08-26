@@ -15,7 +15,7 @@ reverse = lambda st: st[::-1]
 
 if isgoodipv4(sys.argv[1]) == True:
     print("OK")
-    arpa=reverse(sys.argv[1])
+    arpa=".".join(reversed(sys.argv[1].split('.'))) +'.in-addr.arpa'
     print("%s" %arpa)
     fileToSearch='templatecommon'
     textToSearch='templatecommon'
