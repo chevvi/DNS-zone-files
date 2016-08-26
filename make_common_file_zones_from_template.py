@@ -3,10 +3,11 @@
 import sys
 import subprocess
 import fileinput
+from config import infraDns
 
 def isgoodipv4(s):
     pieces = s.split('.')
-    if len(pieces) != 4: return False
+    if len(pieces) != 3: return False
     try: return all(0<=int(p)<256 for p in pieces)
     except ValueError: return False 
 
