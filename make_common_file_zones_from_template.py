@@ -4,6 +4,7 @@ import sys
 import subprocess
 import fileinput
 from config import infraDns
+from config import slave
 
 def isgoodipv4(s):
     pieces = s.split('.')
